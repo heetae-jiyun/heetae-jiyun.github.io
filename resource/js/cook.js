@@ -64,6 +64,7 @@ function resetSearch() {
 
 function searchCards() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    jsonData = [...originalData];
     jsonData = jsonData.filter(item => item.title.toLowerCase().includes(searchInput));
     currentPage = 1;
     displayCards();
