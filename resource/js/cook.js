@@ -1,3 +1,4 @@
+let originalData = [];
 let jsonData = [];
 let currentPage = 1;
 const itemsPerPage = 15;
@@ -5,7 +6,8 @@ const itemsPerPage = 15;
 async function fetchData() {
     try {
         const response = await fetch('resource/json/cook.json'); // JSON 파일 경로
-        jsonData = await response.json();
+        originalData = await response.json();
+        jsonData = [...originalData];
         displayCards();
     } catch (error) {
         console.error("데이터 로드 오류:", error);
