@@ -23,10 +23,12 @@ function displayCards() {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-            <img src="${item.thumbnail}" alt="${item.title}">
-            <h3>${item.title}</h3>
-            <a href="${item.link}" target="_blank">자세히 보기</a>
-        `;
+                <a href="${item.link}" target="_blank" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                    <img src="${item.thumbnail || `https://www.google.com/s2/favicons?domain=${new URL(item.link).hostname}`}" alt="${item.title}">
+                    <h3>${item.title}</h3>
+                </a>
+            `;
+                // <p style="text-align: center; color: blue;">자세히 보기</p>
         container.appendChild(card);
     });
     setupPagination();
